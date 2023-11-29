@@ -42,10 +42,10 @@ snap install bruno
 
 # Apt এর মাধ্যমে লিনাক্সে
 sudo mkdir -p /etc/apt/keyrings /root/.gnupg
+sudo apt update && sudo apt install gpg
 sudo gpg --no-default-keyring --keyring /etc/apt/keyrings/bruno.gpg --keyserver keyserver.ubuntu.com --recv-keys 9FA6017ECABE0266
 echo "deb [signed-by=/etc/apt/keyrings/bruno.gpg] http://debian.usebruno.com/ bruno stable" | sudo tee /etc/apt/sources.list.d/bruno.list
-sudo apt update
-sudo apt install bruno
+sudo apt update && sudo apt install bruno
 ```
 
 ### একাধিক প্ল্যাটফর্মে চালান 🖥️
