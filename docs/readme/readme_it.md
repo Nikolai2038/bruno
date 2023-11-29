@@ -39,7 +39,8 @@ choco install bruno
 snap install bruno
 
 # Su Linux tramite Apt
-sudo mkdir -p /etc/apt/keyrings /root/.gnupg
+sudo mkdir -p /etc/apt/keyrings
+sudo mkdir -m 700 -p /root/.gnupg
 sudo apt update && sudo apt install gpg
 sudo gpg --no-default-keyring --keyring /etc/apt/keyrings/bruno.gpg --keyserver keyserver.ubuntu.com --recv-keys 9FA6017ECABE0266
 echo "deb [signed-by=/etc/apt/keyrings/bruno.gpg] http://debian.usebruno.com/ bruno stable" | sudo tee /etc/apt/sources.list.d/bruno.list
