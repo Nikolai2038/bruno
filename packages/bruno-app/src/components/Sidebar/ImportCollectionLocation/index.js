@@ -21,7 +21,6 @@ const ImportCollectionLocation = ({ onClose, handleSubmit, collectionName }) => 
         .required('name is required')
     }),
     onSubmit: (values) => {
-      console.log('here');
       handleSubmit(values.collectionLocation);
     }
   });
@@ -46,7 +45,11 @@ const ImportCollectionLocation = ({ onClose, handleSubmit, collectionName }) => 
   const onSubmit = () => formik.handleSubmit();
 
   return (
-    <Modal size="sm" title="Import Collection" confirmText="Import" handleConfirm={onSubmit} handleCancel={onClose}>
+    <Modal
+      size="sm"
+      title="Import Collection"
+      confirmText="Import"
+      handleConfirm={onSubmit} handleCancel={onClose}>
       <form className="bruno-form" onSubmit={formik.handleSubmit}>
         <div>
           <label htmlFor="collectionName" className="block font-semibold">
