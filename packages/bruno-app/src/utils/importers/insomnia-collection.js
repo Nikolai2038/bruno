@@ -41,7 +41,7 @@ const parseGraphQL = (text) => {
   } catch (e) {
     return {
       query: '',
-      variables: {}
+      variables: ''
     };
   }
 };
@@ -152,6 +152,7 @@ const transformInsomniaRequestItem = (request, index, allRequests) => {
     each(request.body.params, (param) => {
       brunoRequestItem.request.body.multipartForm.push({
         uid: uuid(),
+        type: 'text',
         name: param.name,
         value: param.value,
         description: param.description,
@@ -236,7 +237,7 @@ const importCollection = () => {
       .then(transformItemsInCollection)
       .then(hydrateSeqInCollection)
       .then(validateSchema)
-      .then((collection) => resolve(collection))
+      .then((collection) => resolve({ collection }))
       .catch((err) => {
         console.error(err);
         reject(new BrunoError('Import collection failed: ' + err.message));
